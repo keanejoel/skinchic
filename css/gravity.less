@@ -1,0 +1,359 @@
+@width100: 100%;
+@width66: 66.66%;
+@width50: 50%;
+@width33: 33.33%;
+@width25: 25%;
+
+@halfwidth: 48.72%;		// 48.28%
+@thirdwidth: 31.62%;	// 31.04%
+@margin: 2.56%;			// 3.44%
+
+// Main styles
+body .pagecontent .gform_wrapper {
+	margin: 0;
+	max-width: 100%;
+
+	.gform_heading {width: @width100;}
+
+	.field_name_first, .field_name_last, .field_name_middle {width: @width50;}
+
+	.ginput_complex {
+		.ginput_left, .ginput_right {width: @halfwidth;}
+
+		.ginput_right {margin-left: @margin;}
+		
+		input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url] {width: @width100;}
+		
+		.ginput_right select, select {width: @width100 !important;}
+		
+		/*span.name_suffix input[type=text] {width: @width100;}*/
+		
+		&.has_middle span.name_suffix input[type=text] {width: @width33;}
+		
+		&.ginput_container {
+			&.has_first_name.no_middle_name.no_last_name, &.no_first_name.has_middle_name.no_last_name, &.no_first_name.no_middle_name.has_last_name {
+				span {width: @width100;}
+			}
+			
+			&.has_first_name.has_middle_name.no_last_name, &.has_first_name.no_middle_name.has_last_name, &.no_first_name.has_middle_name.has_last_name {
+				span {
+					width: @halfwidth;
+					margin-right: @margin;
+
+					&:first-of-type {float: left;}
+					&:last-of-type {
+						margin-right: 0;
+						float: right;
+					}
+				}
+			}
+			
+			&.has_first_name.has_middle_name.has_last_name {
+				width: @width100;
+				
+				span {
+					width: @thirdwidth;
+					float: left;
+				}
+			}
+	
+			&.has_first_name {
+				&.has_middle_name.has_last_name {
+					span.name_first, span.name_middle {margin-right: @margin;}
+				}
+				&.no_middle_name.has_last_name span.name_first{margin-right: @margin;}
+			}
+		}
+
+		.ginput_full {
+			input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url] {width: @width100 !important;}
+		}
+	}
+
+	.gfield_error {
+		input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url], textarea, select {background-color: #FFDFE0;}
+
+		select {border: 1px solid #790000;}
+
+		.ginput_complex {
+			.ginput_left, .ginput_right {
+				width: @halfwidth;
+			
+				input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url] {width: @width100;}
+			}
+		}
+	}
+
+	.left_label, .right_label {
+		.ginput_complex.ginput_container.has_first_name.has_middle_name.has_last_name{width: @width66;}
+		
+		.gfield_label {width: @width33;}
+
+		input.small, select.small, input.small, select.small {width: 15%;}
+
+		input.medium, select.medium, input.medium, select.medium {width: 35%;}
+
+		input.large, select.large, textarea.large, textarea.medium, textarea.small {width: @width66;}
+
+		div.ginput_complex {width: @width66;}
+
+		.gfield_description{width: @width66;}
+
+		.gfield_error {
+			input.large, select.large, textarea.large {width: @width66;}
+		}
+
+		.gfield_list {width: @width66;}
+
+		.gf_list_one_column {width: @width50;}
+	}
+
+	.top_label {
+		input.small, select.small {width: @width25;}
+		
+		input.medium, select.medium {width: @halfwidth;}
+		
+		input.large, select.large {width: @width100;}
+
+		.gsection_description {width: @width100;}
+
+		.gfield_error {
+			width: @width100;
+
+			.ginput_container {max-width: @width100;}
+
+			input.large, select.large, textarea.large {width: @width100;}
+		}
+
+		.gfield_list {width: @width100;}
+
+		.gf_list_one_column {width: @width50;}
+	}
+
+	.hidden_label {
+		input.large, select.large {width: @width100;}
+	}
+
+	textarea {
+		&.small, &.medium, &.large {width: @width100 !important;}
+	}
+
+	.gfield_description {width: @width100;}
+
+	li.gfield.gfield_error {
+		background-color: transparent;
+		border: none;
+		&.gfield_contains_required {
+			margin-top: 0;
+			margin-bottom: @margin !important;
+			&.gfield_creditcard_warning {
+				background-color: transparent;
+				border: none;
+			}
+			div.ginput_container, li.gfield_html, div.gfield_description {max-width: @width100;}
+			div.ginput_container, label.gfield_label {margin-top: 0;}
+			div.gfield_description {padding-right: 0 !important;}
+			div.gfield_description, div.ginput_container, fieldset legend.gfield_label, label.gfield_label {margin-left: 0;}
+		}
+	}
+
+	div.validation_error {width: @width100;}
+
+	ol.validation_list {width: @width100;}
+
+	.gform_footer {
+		.left_label, .right_label {width: @width66;}
+	}
+
+	form {
+		.left_label, .right_label {
+			li.gfield_html_formatted {width: @width66;}
+		}
+	}
+
+	ul li.gfield.gfield_html img {max-width: @width100 !important;}
+
+	.gform_page_footer {width: @width100;}
+
+	.gf_progressbar_wrapper{width: @width100;}
+
+	.gf_progressbar {width: @width100;}
+
+	.gf_page_steps {width: @width100;}
+
+	ul {
+		&.top_label li.gfield {
+			.gfield_password_strength {width: @width100;}
+
+			&.gfield_error.gfield_contains_required .gfield_password_strength {width: @width100;}
+		}
+		&.left_label, &.right_label {
+			li.gfield .gfield_password_strength {width: @width66;}
+		}
+	}
+
+	.gfield_list td.gfield_list_cell input {width: @width100;}
+
+	li.gfield ul.gfield_radio li input[type=radio]+input[type=text] {width: @width50;}
+
+	.gfield_description.validation_message, .top_label .gfield_description.validation_message {padding: 0 !important;}
+}
+
+
+// Ready classes
+body .pagecontent .gform_wrapper {
+	.top_label {
+		li.gfield {
+			&.gf_inline {
+				input[type=email].large, input[type=number].large, input[type=password].large, input[type=tel].large, input[type=text].large, input[type=url].large {width: @width100 !important;}
+				
+				input[type=email].medium, input[type=number].medium, input[type=password].medium, input[type=tel].medium, input[type=text].medium, input[type=url].medium {width: @width50 !important;}
+				
+				input[type=email].small, input[type=number].small, input[type=password].small, input[type=tel].small, input[type=text].small, input[type=url].small {width: @width25 !important;}
+				
+				textarea {width: @width100 !important;}
+			}
+
+			&.gf_left_half, &.gf_right_half {
+				width: @halfwidth;
+				margin-right: @margin;
+				margin-bottom: @margin;
+
+				input, select {
+					&.medium, &.large {width: @width100;}
+				}
+
+				input.small {width: @width100;}
+
+				textarea {width: @width100;}
+			}
+
+			&.gf_left_third, &.gf_middle_third, &.gf_right_third {
+				width: @thirdwidth;
+				margin-right: @margin;
+				margin-bottom: @margin;
+
+				input, select {
+					&.medium, &.large {width: @width100;}
+				}
+			}
+
+			&.gf_middle_third, &.gf_right_third {margin-left: 0 !important;}
+
+			&.gf_right_half, &.gf_right_third {margin-right: 0;}
+
+			&.gfield_error {
+				&.gf_left_half, &.gf_right_half {width: @halfwidth !important;}
+				
+				&.gf_left_third, &.gf_middle_third, &.gf_right_third {width: @width33;}
+			}
+		}
+
+		li.gsection.gf_scroll_text{
+			width: @width100 !important;
+		}
+	}
+
+	li.gfield {
+		&.gf_3col, &.gf_list_3col {
+			ul.gfield_checkbox, ul.gfield_radio {
+				li {width: @width33;}
+			}
+		}
+	}
+}
+
+body .pagecontent {
+	div.gform_confirmation_wrapper {
+		&.gf_confirmation_simple_yellow, &.gf_confirmation_simple_gray {max-width: @width100;}
+
+		&.gf_confirmation_yellow_gradient, &.gf_confirmation_green_gradient {
+			div.gforms_confirmation_message {max-width: @width100;}
+		}
+	}
+
+	div.gf_simple_horizontal_wrapper {max-width: @width100;}
+
+	div.gf_simple_horizontal, div.gf_simple_horizontal_wrapper {
+		div.gform_body {
+			width: 74%;
+
+			ul li.gfield {
+				input.large, input.medium, input.small {width: @width100;}
+			}
+		}
+		div.gform_footer {width: @width25;}
+	}
+
+	.gform_wrapper {
+		.left_label, .right_label {
+			li.gfield.gsection.gf_section_right {width: @width66;}
+		}
+	}
+}
+
+
+// Affari
+body {
+	.pagecontent .gform_wrapper {
+		input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url], textarea, select {
+			.border-box;
+			border-color: #888;
+			border-style: solid;
+			border-width: 1px;
+			background-color: @white;
+			text-indent: 0;
+			padding: .313em .25em;
+			.border-radius(0);
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			&:active, &:focus {outline: none !important;}
+		}
+
+		textarea {resize: none;}
+
+		ul {
+			&.gfield_radio li {padding-left: 1px !important;}
+
+			li.gfield {margin-bottom: @margin;}
+		}
+
+		&.gf_browser_chrome {
+			ul.gform_fields li.gfield {
+				div.ginput_complex span.ginput_left select, div.ginput_complex span.ginput_right select, input[type=radio], select {margin-left: 0;}
+
+				span.name_first, span.name_last, span.name_middle {padding-top: 0;}
+			}
+			select {width: @width100 !important;}
+			span.name_first, span.name_last, span.name_middle {padding-top: 0;}
+
+			.gfield_error {
+				input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url], select, textarea {margin-bottom: 0;}
+			}
+
+			li.gfield_error.field_sublabel_above .ginput_complex input[type=text] {margin-bottom: 0;}
+		}
+
+		.top_label .gfield_label {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.gfield_date_day, .gfield_date_month, .gfield_date_year, .gfield_time_ampm, .gfield_time_hour, .gfield_time_minute, .ginput_complex {
+			span:nth-last-of-type(2), span:last-of-type {
+				label {margin-bottom: 0;}
+			}
+		}
+
+		.gform_description {
+			display: block;
+			line-height: 1.5;
+		}
+	}
+
+	.ui-datepicker {position: absolute;}
+}
+
+
+
+
